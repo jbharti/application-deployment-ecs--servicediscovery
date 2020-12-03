@@ -1,0 +1,13 @@
+{
+    "cluster": "SM",
+    "serviceName": "bkd-service",
+    "taskDefinition": "sm-bkd",    
+	  "serviceRegistries": [
+        {
+            "registryArn": "FILL-IN-YOUR-SERVICE-DISCOVERY-REGISTRY-ARN",			
+            "containerName": "sm",
+            "containerPort": 8082           
+        }
+    ], 
+    "desiredCount": 1
+}

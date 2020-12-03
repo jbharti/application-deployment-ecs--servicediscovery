@@ -1,0 +1,37 @@
+{
+  "family": "sm-ui",
+  "executionRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",
+  "containerDefinitions": [    
+	{
+      "name": "sm-ui",
+      "image": "#FILL-IN-YOUR-FRONTEND-IMAGE#",
+      "cpu": #VALUE#,	  
+      "memoryReservation": #VALUE#,
+      "portMappings": [
+        {
+          "hostPort": #VALUE#,
+          "protocol": "tcp",
+          "containerPort": #VALUE#
+        }
+      ],
+	  "environment": [
+        {
+          "name": "ENV_URL",
+          "value": "#FILL-IN-YOUR-BACKENDEND-URL#"
+        },
+        {
+          "name": "TZ",
+          "value": "Asia/Kolkata"
+        }
+      ],	  
+      "essential": true
+    }
+  ],
+  "memory": "#VALUE#",
+  "taskRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": "bridge",
+  "cpu": "#VALUE#"  
+}

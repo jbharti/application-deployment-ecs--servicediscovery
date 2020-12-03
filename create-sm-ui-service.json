@@ -1,0 +1,13 @@
+{
+    "cluster": "SM",
+    "serviceName": "ui-service",
+    "taskDefinition": "sm-ui",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "#FILL-IN-YOUR-TARGET-GROUP-ARN#",
+            "containerName": "sm-ui",
+            "containerPort": 5000
+        }
+    ],
+    "desiredCount": 1
+}

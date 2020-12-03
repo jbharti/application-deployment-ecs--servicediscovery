@@ -1,0 +1,23 @@
+{
+    "cluster": "SM",
+    "serviceName": "db-service",
+    "taskDefinition": "sm-db",    
+	  "serviceRegistries": [
+        {
+            "registryArn": "FILL-IN-YOUR-SERVICE-DISCOVERY-REGISTRY-ARN",			
+            "containerName": "sm_mongo_auth"            
+        }
+    ],                
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-#VALUE#"
+            ],
+            "securityGroups": [
+                "sg-#VALUE#"
+            ],
+            "assignPublicIp": "DISABLED"
+        }
+    },           
+    "desiredCount": 1
+}

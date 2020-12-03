@@ -1,0 +1,15 @@
+[
+  {
+    "ResourceType": "instance",
+    "Tags": [
+      {
+		   "Key" : "Name",
+		   "Value" : "ECS-SM-INSTANCE"
+	  },
+	  {
+		  "Key" : "Cost",
+		  "Value" : "DEMO"
+	  }
+     ]
+  }  
+]

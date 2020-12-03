@@ -1,0 +1,53 @@
+{
+  "family": "sm-bkd",
+  "executionRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",
+  "containerDefinitions": [    
+	{
+      "name": "sm",
+      "image": "#FILL-IN-YOUR-BACKEND-IMAGE#",
+      "cpu": #VALUE#,	  
+      "memoryReservation": #VALUE#,
+      "portMappings": [
+        {
+          "hostPort": #VALUE#,
+          "protocol": "tcp",
+          "containerPort": #VALUE#
+        }
+      ],
+	  "environment": [      
+        {
+          "name": "mongo.dbhost",
+          "value": "#FILL-IN-YOUR-SERVICE-DISCOVERY-ENDPOINT#"
+        },
+        {
+          "name": "mongo.dbname",
+          "value": "#VALUE#"
+        },
+        {
+          "name": "mongo.dbport",
+          "value": "#VALUE#"
+        },
+        {
+          "name": "mongo.dbpwd",
+          "value": "#VALUE#"
+        },
+        {
+          "name": "mongo.dbuser",
+          "value": "#VALUE#"
+        },
+        {
+          "name": "TZ",
+          "value": "Asia/Kolkata"
+        }
+      ],	  
+      "essential": true	    
+    }
+  ],
+  "networkMode": "bridge",
+  "cpu": "#VALUE#",
+  "memory": "#VALUE#",
+  "taskRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",
+  "requiresCompatibilities": [
+	"EC2"
+  ]	
+}

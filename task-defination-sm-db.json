@@ -1,0 +1,61 @@
+{
+  "family": "sm-db",
+  "executionRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",
+  "containerDefinitions": [
+    {
+      "name": "sm_mongo_auth",
+      "image": "mongo",
+      "cpu": #VALUE#,	  
+      "memoryReservation": #VALUE#,
+      "portMappings": [
+        {
+          "hostPort": #VALUE#,
+          "protocol": "tcp",
+          "containerPort": #VALUE#
+        }
+      ],
+	  "environment": [       
+        {
+          "name": "MONGO_INITDB_ROOT_PASSWORD",
+          "value": "#VALUE#"
+        },
+        {
+          "name": "MONGO_INITDB_ROOT_USERNAME",
+          "value": "#VALUE#"
+        }
+      ],
+	 "mountPoints": [
+		{
+		  "containerPath": "/data/db",
+		  "sourceVolume": "sm-data"
+		},
+		{
+		   "containerPath": "/docker-entrypoint-initdb.d/mongo-init.js:ro",
+		  "sourceVolume": "mongo-init"
+		}
+	  ],	
+      "essential": true
+    }
+  ],
+  "memory": "#VALUE#",
+  "taskRoleArn": "#FILL-IN-YOUR-TARGET-ECS-TASK-EXECUTION-ROLE-ARN#",  
+  "networkMode": "awsvpc",
+  "cpu": "#VALUE#",
+  "requiresCompatibilities": [
+    "EC2"
+  ],  
+  "volumes": [
+    {      
+      "name": "sm-data",
+      "host": {
+        "sourcePath": "/work/sm/sm-data/mongo"
+      }
+    },
+    {
+      "name": "mongo-init",
+      "host": {
+        "sourcePath": "/work/sm/mongo-init.js"
+      }
+    }
+  ]
+}
